@@ -76,6 +76,7 @@ $ cp lib_cpp.so ../../../
 ```bash
 cd
 cd ws_livox
+source ./devel/setup.sh
 roslaunch livox_ros_driver lvx_to_rosbag.launch lvx_file_path:="/home/correct-ai/test.lvx"
 ```
 This will create a `test.bag` at the same directory as `test.lvx`.
