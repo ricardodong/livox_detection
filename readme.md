@@ -23,6 +23,30 @@ Livox Detection is a robust,real time detection package for [*Livox LiDARs*](htt
 - `tensorflow1.13+` (tested on 1.13.0)
 - `pybind11`
 - `ros`
+- `Livox SDK`
+- `Livox ROS Driver`
+### Ros installation
+#### before ros installation
+Installing ros will install cmake using apt, which will install cmake 3.10.2 on ubuntu 18.04. This old version is not compatiable with many mordern libraries. So please install other libraries first before ROS.
+#### follow these stpes officially provided by ROS
+[*ROS melodic*](http://wiki.ros.org/melodic/Installation/Ubuntu)
+```bash
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo apt update
+sudo apt install ros-melodic-desktop-full
+echo "source /opt/ros/melodic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+```
+#### don't follow step 1.6 in official installation install python-ros with pip
+Try to run `roscore` first before those steps, you may not need to do this
+```bash
+pip install rosdep
+pip install rospkg
+```
+#### done
+### Livox installaion
+install previous dependency first and then `Livox ROS driver`
 
 # Installation
 
@@ -46,6 +70,15 @@ $ cp lib_cpp.so ../../../
 5. Download the [pre_trained model](https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/github/Livox_detection1.1_model.zip) and unzip it to the root directory.
 
 # Run
+
+### getting rosbag data
+```bash
+cd
+cd ws_livox
+roslaunch livox_ros_driver lvx_to_rosbag.launch lvx_file_path:="/home/correct-ai/test.lvx"
+```
+This will create a `test.bag` at the same directory as `test.lvx`.
+Noticing that it is necessary to put the whole absolute path here, any relative path like `~/` will leads to problem.
 
 ### For sequence frame detection
 
