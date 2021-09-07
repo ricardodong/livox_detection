@@ -47,7 +47,10 @@ pip install rospkg
 #### done
 ### Livox installaion
 You don't need to specfic ARM parameter during cmake for `Livox SDK`. 
-Install previous dependency first and then `Livox ROS driver`
+Install previous dependency first and then `Livox ROS Driver`
+[*Livox SDK*](https://github.com/Livox-SDK/Livox-SDK)
+[*Livox ROS Driver*](https://github.com/Livox-SDK/livox_ros_driver)
+
 
 # Installation
 
